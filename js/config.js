@@ -1,10 +1,5 @@
-/**
- * API Configuration
- * Centralized configuration for API endpoints and settings
- */
-
 const API_CONFIG = {
-  BASE_URL: 'http://localhost:5000/api',
+  BASE_URL: 'https://ai-recruitment-backend-rid4.onrender.com/api',   // <-- FIXED
   ENDPOINTS: {
     AUTH: {
       LOGIN: '/auth/login',
@@ -40,52 +35,31 @@ const API_CONFIG = {
   }
 };
 
-/**
- * Get authentication token from localStorage
- */
 function getAuthToken() {
   return localStorage.getItem('recruitai_token');
 }
 
-/**
- * Set authentication token in localStorage
- */
 function setAuthToken(token) {
   localStorage.setItem('recruitai_token', token);
 }
 
-/**
- * Remove authentication token from localStorage
- */
 function removeAuthToken() {
   localStorage.removeItem('recruitai_token');
 }
 
-/**
- * Get user data from localStorage
- */
 function getUserData() {
   const userData = localStorage.getItem('recruitai_user');
   return userData ? JSON.parse(userData) : null;
 }
 
-/**
- * Set user data in localStorage
- */
 function setUserData(user) {
   localStorage.setItem('recruitai_user', JSON.stringify(user));
 }
 
-/**
- * Remove user data from localStorage
- */
 function removeUserData() {
   localStorage.removeItem('recruitai_user');
 }
 
-/**
- * Make authenticated API request
- */
 async function apiRequest(endpoint, options = {}) {
   const token = getAuthToken();
   const url = `${API_CONFIG.BASE_URL}${endpoint}`;
@@ -121,16 +95,12 @@ async function apiRequest(endpoint, options = {}) {
   }
 }
 
-/**
- * Make file upload request
- */
 async function uploadFile(endpoint, file, additionalData = {}) {
   const token = getAuthToken();
   const url = `${API_CONFIG.BASE_URL}${endpoint}`;
   
   const formData = new FormData();
   
-  // Determine field name based on endpoint
   if (endpoint.includes('/resume/')) {
     formData.append('resume', file);
   } else if (endpoint.includes('/verify/')) {
@@ -139,18 +109,13 @@ async function uploadFile(endpoint, file, additionalData = {}) {
     formData.append('file', file);
   }
   
-  // Add additional form data
   Object.keys(additionalData).forEach(key => {
     if (additionalData[key] !== undefined && additionalData[key] !== null) {
       formData.append(key, additionalData[key]);
     }
   });
   
-  const headers = {};
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-  // Don't set Content-Type header - browser will set it with boundary for FormData
+  const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
   
   try {
     const response = await fetch(url, {
@@ -171,4 +136,3 @@ async function uploadFile(endpoint, file, additionalData = {}) {
     throw error;
   }
 }
-
