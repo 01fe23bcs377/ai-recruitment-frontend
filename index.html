@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RecruitAI - Smart Hiring Platform</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
+
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <!-- Loading Animation -->
     <div id="loading-screen" class="loading-screen">
@@ -30,37 +37,14 @@
                 <i class="fas fa-bullseye"></i>
                 <span>RecruitAI</span>
             </div>
+
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#dashboard" class="nav-link" data-page="dashboard">
-                        <i class="fas fa-th-large"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#jobs" class="nav-link" data-page="jobs">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Jobs</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#candidates" class="nav-link" data-page="candidates">
-                        <i class="fas fa-users"></i>
-                        <span>Candidates</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#upload" class="nav-link" data-page="upload">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <span>Upload</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#verify" class="nav-link" data-page="verify">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Verify</span>
-                    </a>
-                </li>
+                <li class="nav-item"><a href="#dashboard" class="nav-link" data-page="dashboard"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="#jobs" class="nav-link" data-page="jobs"><i class="fas fa-briefcase"></i><span>Jobs</span></a></li>
+                <li class="nav-item"><a href="#candidates" class="nav-link" data-page="candidates"><i class="fas fa-users"></i><span>Candidates</span></a></li>
+                <li class="nav-item"><a href="#upload" class="nav-link" data-page="upload"><i class="fas fa-cloud-upload-alt"></i><span>Upload</span></a></li>
+                <li class="nav-item"><a href="#verify" class="nav-link" data-page="verify"><i class="fas fa-shield-alt"></i><span>Verify</span></a></li>
+
                 <li class="nav-item auth-item" id="auth-item">
                     <a href="#" class="nav-link user-profile" id="userProfile">
                         <div class="user-avatar">SM</div>
@@ -68,6 +52,7 @@
                     </a>
                 </li>
             </ul>
+
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -78,65 +63,50 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Login Page -->
+
+        <!-- LOGIN PAGE -->
         <section id="login" class="page active login-page">
             <div class="login-wrapper">
                 <div class="login-visual">
                     <div class="login-visual-content">
-                        <div class="visual-logo">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
+                        <div class="visual-logo"><i class="fas fa-bullseye"></i></div>
                         <h1>Welcome to RecruitAI</h1>
                         <p>Smart hiring powered by AI and blockchain technology</p>
+
                         <div class="visual-features">
-                            <div class="visual-feature">
-                                <i class="fas fa-robot"></i>
-                                <span>AI-Powered Matching</span>
-                            </div>
-                            <div class="visual-feature">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Blockchain Verification</span>
-                            </div>
-                            <div class="visual-feature">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Advanced Analytics</span>
-                            </div>
+                            <div class="visual-feature"><i class="fas fa-robot"></i><span>AI-Powered Matching</span></div>
+                            <div class="visual-feature"><i class="fas fa-shield-alt"></i><span>Blockchain Verification</span></div>
+                            <div class="visual-feature"><i class="fas fa-chart-line"></i><span>Advanced Analytics</span></div>
                         </div>
                     </div>
                 </div>
+
                 <div class="login-form-container">
                     <div class="login-card">
                         <div class="login-header">
                             <h2>Sign In</h2>
                             <p>Enter your credentials to access the recruitment system</p>
                         </div>
+
                         <form class="login-form" id="loginForm">
                             <div class="form-group">
-                                <label for="email">
-                                    <i class="fas fa-envelope"></i>
-                                    Email Address
-                                </label>
+                                <label for="email"><i class="fas fa-envelope"></i>Email Address</label>
                                 <input type="email" id="email" placeholder="hr@company.com" required>
                             </div>
+
                             <div class="form-group">
-                                <label for="password">
-                                    <i class="fas fa-lock"></i>
-                                    Password
-                                </label>
+                                <label for="password"><i class="fas fa-lock"></i>Password</label>
                                 <input type="password" id="password" placeholder="Enter your password" required>
                             </div>
+
                             <div class="form-options">
-                                <label class="checkbox-label">
-                                    <input type="checkbox">
-                                    <span>Remember me</span>
-                                </label>
+                                <label class="checkbox-label"><input type="checkbox"><span>Remember me</span></label>
                                 <a href="#" class="forgot-password">Forgot password?</a>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">
-                                <i class="fas fa-sign-in-alt"></i>
-                                Sign In
-                            </button>
+
+                            <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i>Sign In</button>
                         </form>
+
                         <div class="login-demo">
                             <div class="demo-badge">Demo Credentials</div>
                             <p><strong>Email:</strong> hr@company.com</p>
@@ -147,7 +117,7 @@
             </div>
         </section>
 
-        <!-- Dashboard Page -->
+        <!-- DASHBOARD -->
         <section id="dashboard" class="page">
             <div class="page-header">
                 <div class="header-content">
@@ -155,71 +125,24 @@
                     <p>Welcome back! Here's your hiring overview.</p>
                 </div>
                 <div class="header-actions">
-                    <button class="btn btn-outline" id="refreshDashboard">
-                        <i class="fas fa-sync-alt"></i>
-                        Refresh
-                    </button>
+                    <button class="btn btn-outline" id="refreshDashboard"><i class="fas fa-sync-alt"></i>Refresh</button>
                 </div>
             </div>
 
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon blue">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>12</h3>
-                        <p>Active Jobs</p>
-                        <span class="stat-trend up">
-                            <i class="fas fa-arrow-up"></i>
-                            +2 from last week
-                        </span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon purple">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="totalCandidates">0</h3>
-                        <p>Total Candidates</p>
-                        <span class="stat-trend up">
-                            <i class="fas fa-arrow-up"></i>
-                            <span id="candidatesChange">+0 from last week</span>
-                        </span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon green">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="verifiedCount">0</h3>
-                        <p>Verified</p>
-                        <span class="stat-trend">
-                            <span id="verifiedRate">0% success rate</span>
-                        </span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon orange">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>87%</h3>
-                        <p>Avg Match Score</p>
-                        <span class="stat-trend up">
-                            <i class="fas fa-arrow-up"></i>
-                            +5% from last week
-                        </span>
-                    </div>
-                </div>
+                <div class="stat-card"><div class="stat-icon blue"><i class="fas fa-briefcase"></i></div><div class="stat-info"><h3>12</h3><p>Active Jobs</p></div></div>
+
+                <div class="stat-card"><div class="stat-icon purple"><i class="fas fa-users"></i></div><div class="stat-info"><h3 id="totalCandidates">0</h3><p>Total Candidates</p></div></div>
+
+                <div class="stat-card"><div class="stat-icon green"><i class="fas fa-check-circle"></i></div><div class="stat-info"><h3 id="verifiedCount">0</h3><p>Verified</p></div></div>
+
+                <div class="stat-card"><div class="stat-icon orange"><i class="fas fa-chart-line"></i></div><div class="stat-info"><h3>87%</h3><p>Avg Match Score</p></div></div>
             </div>
 
             <div class="dashboard-grid">
                 <div class="dashboard-card full-width">
                     <div class="card-header">
-                        <h3><i class="fas fa-chart-area"></i> AI Match Trends</h3>
+                        <h3><i class="fas fa-chart-area"></i>AI Match Trends</h3>
                         <div class="card-actions">
                             <select class="chart-period">
                                 <option>Last 4 Weeks</option>
@@ -228,187 +151,140 @@
                             </select>
                         </div>
                     </div>
-                    <div class="chart-container">
-                        <canvas id="matchChart"></canvas>
-                    </div>
+
+                    <div class="chart-container"><canvas id="matchChart"></canvas></div>
                 </div>
 
                 <div class="dashboard-card">
                     <div class="card-header">
-                        <h3><i class="fas fa-star"></i> Top Candidates</h3>
+                        <h3><i class="fas fa-star"></i>Top Candidates</h3>
                         <a href="#candidates" class="view-all" data-page="candidates">View All</a>
                     </div>
-                    <div class="candidates-list" id="topCandidatesList">
-                        <!-- Populated by JavaScript -->
-                    </div>
+                    <div id="topCandidatesList" class="candidates-list"></div>
                 </div>
 
                 <div class="dashboard-card">
                     <div class="card-header">
-                        <h3><i class="fas fa-clipboard-list"></i> Recent Activity</h3>
+                        <h3><i class="fas fa-clipboard-list"></i>Recent Activity</h3>
                     </div>
-                    <div class="activity-log" id="activityLog">
-                        <!-- Populated by JavaScript -->
-                    </div>
+                    <div id="activityLog" class="activity-log"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Jobs Page -->
+        <!-- JOBS -->
         <section id="jobs" class="page">
             <div class="page-header">
-                <div class="header-content">
-                    <h1>Job Openings</h1>
-                    <p>Manage your active job positions and requirements</p>
-                </div>
-                <div class="header-actions">
-                    <button class="btn btn-primary" id="addJobBtn">
-                        <i class="fas fa-plus"></i>
-                        Add Job
-                    </button>
-                </div>
+                <div class="header-content"><h1>Job Openings</h1><p>Manage active job positions</p></div>
+                <div class="header-actions"><button class="btn btn-primary" id="addJobBtn"><i class="fas fa-plus"></i>Add Job</button></div>
             </div>
-
-            <div class="jobs-grid" id="jobsGrid">
-                <!-- Populated by JavaScript -->
-            </div>
+            <div id="jobsGrid" class="jobs-grid"></div>
         </section>
 
-        <!-- Candidates Page -->
+        <!-- CANDIDATES -->
         <section id="candidates" class="page">
             <div class="page-header">
-                <div class="header-content">
-                    <h1>All Candidates</h1>
-                    <p>View and manage candidate profiles</p>
-                </div>
+                <div class="header-content"><h1>All Candidates</h1><p>View and manage profiles</p></div>
                 <div class="header-actions">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search candidates..." id="candidateSearch">
-                    </div>
-                    <select class="filter-select" id="skillFilter">
-                        <option value="">All Skills</option>
-                    </select>
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" id="candidateSearch" placeholder="Search candidates..."></div>
+                    <select id="skillFilter" class="filter-select"><option value="">All Skills</option></select>
                 </div>
             </div>
-
-            <div class="candidates-grid" id="candidatesGrid">
-                <!-- Populated by JavaScript -->
-            </div>
+            <div id="candidatesGrid" class="candidates-grid"></div>
         </section>
 
-        <!-- Upload Page -->
+        <!-- UPLOAD -->
         <section id="upload" class="page">
             <div class="page-header">
-                <div class="header-content">
-                    <h1>Upload Resumes</h1>
-                    <p>Upload candidate resumes for AI parsing and skill extraction</p>
-                </div>
+                <div class="header-content"><h1>Upload Resumes</h1><p>AI parsing and skill extraction</p></div>
             </div>
 
             <div class="upload-layout">
                 <div class="upload-section">
                     <div class="upload-card">
-                        <div class="upload-area" id="uploadArea">
-                            <div class="upload-icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                            </div>
+                        <div id="uploadArea" class="upload-area">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
                             <h3>Drag & Drop Resume Files</h3>
                             <p>or click to browse</p>
-                            <p class="file-types">Supported: PDF, DOCX, TXT (Max 10MB)</p>
+                            <p class="file-types">PDF, DOCX, TXT (Max 10MB)</p>
                             <input type="file" id="fileInput" multiple accept=".pdf,.docx,.txt">
                         </div>
-                        <div class="uploaded-files" id="uploadedFiles"></div>
-                        <button class="btn btn-primary btn-block" id="parseResumes" disabled>
-                            <i class="fas fa-robot"></i>
-                            Parse with AI
+
+                        <div id="uploadedFiles" class="uploaded-files"></div>
+
+                        <button id="parseResumes" class="btn btn-primary btn-block" disabled>
+                            <i class="fas fa-robot"></i>Parse with AI
                         </button>
                     </div>
                 </div>
 
                 <div class="results-section">
                     <div class="results-card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-file-alt"></i> Parsing Results</h3>
-                        </div>
-                        <div class="parsing-results" id="parsingResults">
-                            <div class="empty-state">
-                                <i class="fas fa-inbox"></i>
-                                <p>Upload and parse resumes to see results</p>
-                            </div>
+                        <div class="card-header"><h3><i class="fas fa-file-alt"></i>Parsing Results</h3></div>
+                        <div id="parsingResults" class="parsing-results">
+                            <div class="empty-state"><i class="fas fa-inbox"></i><p>Upload resumes to see results</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Verify Page -->
+        <!-- VERIFY -->
         <section id="verify" class="page">
             <div class="page-header">
-                <div class="header-content">
-                    <h1>Certificate Verification</h1>
-                    <p>Verify academic credentials using blockchain technology</p>
-                </div>
+                <div class="header-content"><h1>Certificate Verification</h1><p>Blockchain-based verification</p></div>
             </div>
 
             <div class="verify-layout">
                 <div class="verify-section">
                     <div class="verify-card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-award"></i> Upload Certificate</h3>
-                        </div>
-                        <div class="verify-area" id="verifyArea">
-                            <div class="verify-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <p>Drag & drop certificate here</p>
+                        <div class="card-header"><h3><i class="fas fa-award"></i>Upload Certificate</h3></div>
+
+                        <div id="verifyArea" class="verify-area">
+                            <i class="fas fa-certificate verify-icon"></i>
+                            <p>Drag & drop certificate</p>
                             <p class="file-types">PDF, JPG, PNG (Max 10MB)</p>
                             <input type="file" id="certificateInput" accept=".pdf,.jpg,.jpeg,.png">
                         </div>
-                        <div class="selected-file" id="selectedFile"></div>
-                        <button class="btn btn-primary btn-block" id="verifyCertificate" disabled>
-                            <i class="fas fa-shield-alt"></i>
-                            Verify on Blockchain
+
+                        <div id="selectedFile" class="selected-file"></div>
+
+                        <button id="verifyCertificate" class="btn btn-primary btn-block" disabled>
+                            <i class="fas fa-shield-alt"></i>Verify on Blockchain
                         </button>
                     </div>
                 </div>
 
                 <div class="result-section">
                     <div class="verify-card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-check-circle"></i> Verification Result</h3>
-                        </div>
-                        <div class="verification-result" id="verificationResult">
-                            <div class="empty-state">
-                                <i class="fas fa-shield-alt"></i>
-                                <p>Upload a certificate to verify</p>
-                            </div>
+                        <div class="card-header"><h3><i class="fas fa-check-circle"></i>Verification Result</h3></div>
+
+                        <div id="verificationResult" class="verification-result">
+                            <div class="empty-state"><i class="fas fa-shield-alt"></i><p>Upload a certificate to verify</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Notifications -->
     <div id="notifications" class="notifications"></div>
 
-    <!-- Modal for Job Details -->
+    <!-- Modal -->
     <div id="jobModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="modalJobTitle"></h3>
                 <button class="modal-close">&times;</button>
             </div>
-            <div class="modal-body" id="modalJobBody">
-                <!-- Populated by JavaScript -->
-            </div>
+            <div id="modalJobBody" class="modal-body"></div>
         </div>
     </div>
 
-    <script src="js/config.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/dashboard.js"></script>
-    <script src="js/app.js"></script>
+    <!-- JS (MODULE ENTRY) -->
+    <script type="module" src="js/app.js"></script>
+
 </body>
 </html>
