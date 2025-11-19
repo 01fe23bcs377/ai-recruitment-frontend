@@ -137,6 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
             showPage('login');
             const nav = document.getElementById('navbar');
             if (nav) nav.classList.add('hidden');
+            // IMPORTANT: Do not add event listeners to loginForm here
+            // Let auth.js handle the login form submission
         } else {
             // Show dashboard
             showPage('dashboard');
