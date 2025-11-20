@@ -4,7 +4,7 @@
  */
 
 const API_CONFIG = {
-  BASE_URL: 'https://ai-recruitment-backend-rid4.onrender.com/api',
+  BASE_URL: '/api',
   ENDPOINTS: {
     AUTH: {
       LOGIN: '/auth/login',
@@ -36,7 +36,7 @@ const API_CONFIG = {
       TOP_CANDIDATES: '/dashboard/top-candidates',
       ACTIVITY: '/dashboard/activity'
     },
-    HEALTH: '/health'
+    HEALTH: '/api/health'
   }
 };
 
