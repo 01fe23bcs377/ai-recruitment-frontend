@@ -114,7 +114,7 @@ function updateStats(stats) {
  * Render top candidates list
  */
 function renderTopCandidates(candidates) {
-  const recentCandidatesEl = document.getElementById('recentCandidates');
+  const recentCandidatesEl = document.getElementById('topCandidatesList');
   if (!recentCandidatesEl) return;
   
   if (candidates.length === 0) {
