@@ -1,80 +1,83 @@
 # RecruitAI - Cloud-Based AI Recruitment Verification System
 
-RecruitAI is a smart hiring platform that leverages AI and blockchain technology to streamline the recruitment process. The system provides features for resume parsing, candidate ranking, and certificate verification.
+## Overview
+This is a cloud-based recruitment system that leverages AI for resume parsing and candidate matching, with blockchain-based certificate verification.
 
-## Features
+## Issues Fixed
 
-- AI-powered resume parsing and candidate ranking
-- Blockchain-based certificate verification
-- Secure user authentication
-- Dashboard with analytics
-- File upload and management
+### 1. Authentication Issues
+- Fixed the authentication middleware to properly protect API routes
+- Updated frontend API configuration to work with deployed environment
 
-## Prerequisites
+### 2. API Endpoint Issues
+- Implemented missing backend controllers for dashboard, ranking, and verification
+- Added proper error handling and response formatting
+- Fixed file serving for uploaded resumes and certificates
 
+### 3. Database Schema Issues
+- Updated Candidate model with additional fields needed for ranking and dashboard
+- Added matchScore and verified fields for better candidate tracking
+
+### 4. Frontend-Backend Integration
+- Fixed API base URL configuration for production deployment
+- Ensured proper CORS configuration for cross-origin requests
+
+## Deployment Instructions
+
+### Prerequisites
 - Node.js (v14 or higher)
-- MongoDB database
+- MongoDB Atlas account
 - Gemini API key for AI features
 
-## Installation
-
+### Setup
 1. Clone the repository
-2. Install backend dependencies:
+2. Install dependencies:
    ```bash
    cd backend
    npm install
    ```
-3. Install frontend dependencies:
+3. Configure environment variables in `backend/.env`:
+   - PORT: Server port (default: 5000)
+   - MONGO_URI: MongoDB connection string
+   - JWT_SECRET: Secret key for JWT tokens
+   - GEMINI_API_KEY: API key for Gemini AI services
+
+4. Start the server:
    ```bash
-   cd ..
-   npm install
-   ```
-
-## Configuration
-
-Create a `.env` file in the `backend` directory with the following variables:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-GEMINI_API_KEY=your_gemini_api_key
-```
-
-## Running the Application
-
-1. Start the backend server:
-   ```bash
-   cd backend
    npm start
    ```
 
-2. Start the frontend server:
-   ```bash
-   cd ..
-   npm start
-   ```
+### API Endpoints
+- Authentication: `/api/auth`
+- Resume Management: `/api/resume`
+- AI Parsing: `/api/ai`
+- Candidate Ranking: `/api/rank`
+- Certificate Verification: `/api/verify`
+- Dashboard: `/api/dashboard`
 
-3. Access the application at `http://localhost:8080`
+## Features
+1. **User Authentication**: Secure login and registration
+2. **Resume Upload**: PDF resume upload and storage
+3. **AI Parsing**: Automatic extraction of skills, experience, and education
+4. **Candidate Ranking**: AI-powered candidate matching based on job requirements
+5. **Certificate Verification**: Blockchain-based academic certificate verification
+6. **Dashboard**: Analytics and candidate overview
 
-## Deployment
+## Technologies Used
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB with Mongoose
+- **AI**: Google Gemini API
+- **Authentication**: JWT
+- **File Upload**: Multer
+- **Blockchain**: Simulated verification (can be extended with actual blockchain integration)
 
-For deployment to cloud platforms like Heroku, AWS, or Azure:
-
-1. Set the environment variables in your deployment environment
-2. Ensure MongoDB is accessible
-3. Deploy both the frontend and backend components
-4. Configure the proxy settings if needed
-
-## API Endpoints
-
-- `/api/auth` - Authentication endpoints
-- `/api/resume` - Resume upload and management
-- `/api/ai` - AI parsing endpoints
-- `/api/rank` - Candidate ranking endpoints
-- `/api/verify` - Certificate verification endpoints
-- `/api/dashboard` - Dashboard statistics endpoints
+## Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a pull request
 
 ## License
-
 This project is licensed under the MIT License.
