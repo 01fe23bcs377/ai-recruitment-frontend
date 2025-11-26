@@ -1,3 +1,4 @@
+
 /**
  * Dashboard Module
  * Handles dashboard data loading and display
@@ -12,9 +13,25 @@ async function initDashboard() {
   try {
     await loadDashboardData();
     renderDashboard();
+    setupRefreshButton();
   } catch (error) {
     console.error('Dashboard initialization error:', error);
     showNotification('Failed to load dashboard data', 'error');
+  }
+}
+
+/**
+ * Setup refresh button event listener
+ */
+function setupRefreshButton() {
+  const refreshBtn = document.getElementById('refreshDashboard');
+  if (refreshBtn) {
+    // Remove any existing event listeners to prevent duplicates
+    refreshBtn.replaceWith(refreshBtn.cloneNode(true));
+    const newRefreshBtn = document.getElementById('refreshDashboard');
+    newRefreshBtn.addEventListener('click', function() {
+      window.refreshDashboard();
+    });
   }
 }
 
