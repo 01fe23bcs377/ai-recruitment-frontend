@@ -31,7 +31,7 @@ const API_CONFIG = {
       STATUS: (id) => `/verify/${id}`
     },
     DASHBOARD: {
-      DATA: '/dashboard',
+      DATA: '/dashboard/stats',
       STATS: '/dashboard/stats',
       TOP_CANDIDATES: '/dashboard/top-candidates',
       ACTIVITY: '/dashboard/activity'
