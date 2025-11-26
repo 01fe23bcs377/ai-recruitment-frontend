@@ -1,10 +1,10 @@
-
 /**
  * Dashboard Module
  * Handles dashboard data loading and display
  */
 
 let dashboardData = null;
+let matchChart = null; // Chart instance
 
 /**
  * Initialize dashboard
@@ -58,6 +58,7 @@ function renderDashboard() {
   const stats = dashboardData.stats || {};
   const topCandidates = dashboardData.topCandidates || [];
   const recentActivity = dashboardData.recentActivity || [];
+  const trendData = dashboardData.trendData || {}; // Get trend data
   
   // Update statistics
   updateStats(stats);
@@ -67,6 +68,9 @@ function renderDashboard() {
   
   // Render recent activity
   renderRecentActivity(recentActivity);
+  
+  // Render AI trends chart
+  renderTrendChart(trendData);
 }
 
 /**
@@ -188,6 +192,98 @@ function renderRecentActivity(activities) {
       </div>
     `;
   }).join('');
+}
+
+/**
+ * Render AI Match Trends chart
+ */
+function renderTrendChart(trendData) {
+  const chartCtx = document.getElementById('matchChart');
+  if (!chartCtx) return;
+  
+  // Destroy existing chart if it exists
+  if (matchChart) {
+    matchChart.destroy();
+  }
+  
+  // Check if we have data to display
+  if (!trendData.labels || !trendData.data || trendData.labels.length === 0) {
+    chartCtx.parentNode.innerHTML = `
+      <div class="empty-state">
+        <i class="fas fa-chart-line"></i>
+        <p>No trend data available</p>
+      </div>
+    `;
+    return;
+  }
+  
+  // Create new chart
+  matchChart = new Chart(chartCtx, {
+    type: 'line',
+    data: {
+      labels: trendData.labels,
+      datasets: [{
+        label: 'Match Score',
+        data: trendData.data,
+        borderColor: '#4e9fff',
+        backgroundColor: 'rgba(78, 159, 255, 0.1)',
+        borderWidth: 3,
+        pointBackgroundColor: '#ffffff',
+        pointBorderColor: '#4e9fff',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          titleColor: '#333',
+          bodyColor: '#666',
+          borderColor: '#eee',
+          borderWidth: 1,
+          cornerRadius: 10,
+          displayColors: false,
+          callbacks: {
+            label: function(context) {
+              return `Match Score: ${context.parsed.y}%`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          min: 0,
+          max: 100,
+          grid: {
+            color: 'rgba(0, 0, 0, 0.05)'
+          },
+          ticks: {
+            color: '#666',
+            callback: function(value) {
+              return value + '%';
+            }
+          }
+        },
+        x: {
+          grid: {
+            display: false
+          },
+          ticks: {
+            color: '#666'
+          }
+        }
+      }
+    }
+  });
 }
 
 /**
